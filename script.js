@@ -58,24 +58,25 @@ function replaceCharacterInWords(word, oldChar, newChar) {
 }
 
 function generateWord(word, index) {
-	console.log(word);
-	if (index % 2 == 0) {
-		newword = convertWordToLowercase(word);
-		console.log(newword);
-		newword = convertWordToUpperAtIndex(newword, 3);
-		newword = convertWordToUpperAtIndex(newword, 6);
-	} else {
-		newword = convertWordToUppercase(word);
-		console.log(newword);
-		newword = convertWordToLowerAtIndex(newword, 2);
-		newword = convertWordToLowerAtIndex(newword, 4);
+	switch (index) {
+		case 2:
+			newword = convertWordToLowercase(word);
+			newword = convertWordToUpperAtIndex(newword, 0);
+			newword = convertWordToLowerAtIndex(newword, 3);
+			break;
+		case 1:
+			newword = convertWordToLowercase(word);
+			newword = convertWordToUpperAtIndex(newword, 0);
+			break;
+		default:
+			newword = convertWordToUppercase(word);
+			newword = convertWordToLowerAtIndex(newword, 1);
+			newword = convertWordToLowerAtIndex(newword, 6);
 	}
 
 	newword = replaceCharacterInWords(newword, "o", "0");
 	newword = replaceCharacterInWords(newword, "i", "1");
 	newword = replaceCharacterInWords(newword, "t", "4");
-	newword = replaceCharacterInWords(newword, "s", "5");
-	newword = replaceCharacterInWords(newword, "b", "13");
 
 	return newword;
 }
