@@ -8,7 +8,7 @@ import {
 
 function generateFlag(word, index) {
 	let newword;
-
+	console.log(word);
 	if (!word) return word; // Return empty if word is falsy
 
 	switch (index) {
