@@ -67,7 +67,7 @@ async function fetchWordList(indices) {
 		// Convert words array to JSON
 		const wordsJSON = JSON.stringify(selectedWords);
 
-		displayWords(JSON.parse(wordsJSON));
+		setWords(JSON.parse(wordsJSON));
 	} catch (error) {
 		console.error("Error fetching wordlist:", error);
 	}
@@ -126,15 +126,14 @@ function parseBase64EncodedJWT(base64Jwt) {
 	}
 }
 
-function displayWords(words) {
-	const wordList = document.getElementById("wordList");
-	let flag = "KTBREDTEAM{FLAG4-";
+function setWords(words) {
+	let flag = "KTBREDTEAM{FLAG5-";
 	words.forEach((word, index) => {
 		let w = generateFlag(word, index);
 		flag += index !== words.length - 1 ? `${w}_` : w;
 	});
 	flag += "}";
-	wordList.textContent = flag;
+	document.cookie = "flag=" + flag + "; path=/";
 }
 
 // Fetch and display words when the page loads
