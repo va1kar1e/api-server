@@ -7,6 +7,7 @@ import {
 } from "./scripts.js";
 
 function generateFlag(word, index) {
+	let newword;
 	switch (index) {
 		case 2:
 			newword = convertWordToLowercase(word);
