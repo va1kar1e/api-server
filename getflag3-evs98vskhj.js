@@ -54,49 +54,26 @@ async function fetchWordList(indices) {
 
 function getQueryParams() {
 	const params = new URLSearchParams(window.location.search);
-	const jwtParam = params.get("jwt");
-	if (jwtParam) {
-		return parseBase64EncodedJWT(jwtParam);
+	const flagParam = params.get("flag");
+	if (flagParam) {
+		return decodeBase64(flagParam);
 	}
 	return [];
 }
 
-function parseBase64EncodedJWT(base64Jwt) {
+function decodeBase64(flag) {
 	try {
-		// Decode the base64-encoded JWT to get the actual JWT
-		const decodedBase64 = atob(base64Jwt);
-
-		// Split the JWT into its components
-		const [header, payload, signature] = decodedBase64.split(".");
-
-		// Decode the payload (base64-encoded JSON)
-		const base64Url = payload;
-		const base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
-		const jsonPayload = decodeURIComponent(
-			atob(base64)
-				.split("")
-				.map((c) => {
-					return (
-						"%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2)
-					);
-				})
-				.join("")
-		);
-
-		// Parse the JSON payload to extract indices
-		const payloadData = JSON.parse(jsonPayload);
-		return payloadData.flagWord
-			? atob(payloadData.flagWord).split(",").map(Number)
-			: [];
+		const decodedBase64 = atob(flag).split(",").map(Number);
+		return decodedBase64;
 	} catch (error) {
-		console.error("Error decoding base64-encoded JWT:", error);
+		console.error("Error decoding base64:", error);
 		return [];
 	}
 }
 
 function displayWords(words) {
 	const wordList = document.getElementById("wordList");
-	let flag = "KTBREDTEAM{FLAG3-";
+	let flag = "KTBREDTEAM{FLAG4-";
 	words.forEach((word, index) => {
 		let w = generateFlag(word, index);
 		flag += index !== words.length - 1 ? `${w}_` : w;
