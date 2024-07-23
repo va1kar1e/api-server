@@ -8,6 +8,8 @@ import {
 
 function generateFlag(word, index) {
 	let newword;
+
+	if (!word) return word; // Return empty if word is falsy
 	switch (index) {
 		case 2:
 			newword = convertWordToLowercase(word);
@@ -93,7 +95,7 @@ function displayWords(words) {
 	var flag = "KTBREDTEAM{FLAG3-";
 	console.log(words);
 	words.forEach((word, index) => {
-		w = generateFlag(word);
+		w = generateFlag(word, index);
 		flag += index !== words.length - 1 ? `${w}_` : w;
 	});
 	flag += "}";
