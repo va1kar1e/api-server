@@ -16,17 +16,18 @@ function generateFlag(word, index) {
 			newword = convertWordToLowercase(word);
 			newword = convertWordToUpperAtIndex(newword, 0);
 			newword = convertWordToLowerAtIndex(newword, 3);
-			newword = replaceCharacterInWords(newword, "s", "5");
+
 			break;
 		case 1:
 			newword = convertWordToLowercase(word);
-			newword = convertWordToUpperAtIndex(newword, 0);
 			newword = replaceCharacterInWords(newword, "b", "13");
+			newword = convertWordToUpperAtIndex(newword, 0);
 			break;
 		default:
 			newword = convertWordToUppercase(word);
 			newword = convertWordToLowerAtIndex(newword, 1);
 			newword = convertWordToLowerAtIndex(newword, 6);
+			newword = replaceCharacterInWords(newword, "s", "5");
 	}
 
 	newword = replaceCharacterInWords(newword, "o", "0");
