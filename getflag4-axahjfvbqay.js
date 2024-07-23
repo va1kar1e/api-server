@@ -50,6 +50,8 @@ function generateFlag(word, index) {
 	}
 
 	newword = replaceCharacterInWords(newword, "o", "0");
+
+	console.log(newword);
 	return newword;
 }
 
