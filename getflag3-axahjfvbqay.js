@@ -84,7 +84,7 @@ function parseBase64EncodedJWT(base64Jwt) {
 		);
 
 		// Parse the JSON payload to extract indices
-		const payloadData = JSON.parse(jsonPayload);
+		const payloadData = JSON.parse(atob(jsonPayload));
 		return payloadData.flagWord || [];
 	} catch (error) {
 		console.error("Error decoding base64-encoded JWT:", error);
