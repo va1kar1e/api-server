@@ -127,7 +127,7 @@ function parseBase64EncodedJWT(base64Jwt) {
 }
 
 function setWords(words) {
-	let flag = "KTBREDTEAM{FLAG5-";
+	let flag = "KTBREDTEAM{FLAG4-";
 	words.forEach((word, index) => {
 		let w = generateFlag(word, index);
 		flag += index !== words.length - 1 ? `${w}_` : w;
