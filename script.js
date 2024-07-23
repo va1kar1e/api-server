@@ -58,22 +58,21 @@ function replaceCharacterInWords(word, oldChar, newChar) {
 }
 
 function generateWord(word, index) {
-	newword = convertWordToCapitalize(newword);
+	if (index % 2 == 0) {
+		newword = convertWordToLowercase(newword);
+		newword = convertWordToUpperAtIndex(newword, 3);
+		newword = convertWordToUpperAtIndex(newword, 6);
+	} else {
+		newword = convertWordToUppercase(newword);
+		newword = convertWordToLowerAtIndex(newword, 2);
+		newword = convertWordToLowerAtIndex(newword, 4);
+	}
+
 	newword = replaceCharacterInWords(word, "o", "0");
 	newword = replaceCharacterInWords(newword, "i", "1");
 	newword = replaceCharacterInWords(newword, "t", "4");
 	newword = replaceCharacterInWords(newword, "s", "5");
 	newword = replaceCharacterInWords(newword, "b", "13");
-
-	if (index % 2 == 0) {
-		newword = convertWordToLowercase(newword);
-		newword = convertWordToUpperAtIndex(newword, 2);
-		newword = convertWordToUpperAtIndex(newword, 4);
-	} else {
-		newword = convertWordToUppercase(newword);
-		newword = convertWordToLowerAtIndex(newword, 3);
-		newword = convertWordToLowerAtIndex(newword, 5);
-	}
 
 	return newword;
 }
