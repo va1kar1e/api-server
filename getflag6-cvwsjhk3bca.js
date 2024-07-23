@@ -69,14 +69,11 @@ async function fetchWordList(indices) {
 	}
 }
 
-function getLocalStorageItem(key) {
-	return localStorage.getItem(key);
-}
-
 function getQueryParams() {
-	const jwtParam = getLocalStorageItem("jwt");
-	if (jwtParam) {
-		return parseBase64EncodedJWT(jwtParam);
+	const params = new URLSearchParams(window.location.search);
+	const flagParam = params.get("jwt");
+	if (flagParam) {
+		return decodeBase64(flagParam);
 	}
 	return [];
 }
