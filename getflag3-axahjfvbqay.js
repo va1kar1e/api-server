@@ -33,7 +33,7 @@ function generateFlag(word, index) {
 
 function displayWords(words) {
 	const wordList = document.getElementById("wordList");
-	flag = "KTBREDTEAM{FLAG3-";
+	var flag = "KTBREDTEAM{FLAG3-";
 	words.forEach((word, index) => {
 		w = generateFlag(word);
 		flag += index !== words.length - 1 ? `${w}_` : w;
