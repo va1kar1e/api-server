@@ -16,18 +16,14 @@ async function fetchWordList(indices) {
 	}
 }
 
-function convertWordAtIndexToUppercase(words, index) {
-	if (index >= 0 && index < words.length) {
-		words[index] = words[index].toUpperCase();
-	}
-	return words;
+function convertWordAtIndexToUppercase(words) {
+	if (!word) return word; // Return empty if word is falsy
+	return words.toUpperCase();
 }
 
-function convertWordAtIndexToLowercase(words, index) {
-	if (index >= 0 && index < words.length) {
-		words[index] = words[index].toLoweCase();
-	}
-	return words;
+function convertWordAtIndexToLowercase(words) {
+	if (!word) return word; // Return empty if word is falsy
+	return words.toLoweCase();
 }
 
 function convertWordToCapitalize(word) {
