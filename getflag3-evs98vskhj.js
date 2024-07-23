@@ -73,7 +73,7 @@ function decodeBase64(flag) {
 
 function displayWords(words) {
 	const wordList = document.getElementById("wordList");
-	let flag = "KTBREDTEAM{FLAG4-";
+	let flag = "KTBREDTEAM{FLAG3-";
 	words.forEach((word, index) => {
 		let w = generateFlag(word, index);
 		flag += index !== words.length - 1 ? `${w}_` : w;
