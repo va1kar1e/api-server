@@ -45,7 +45,7 @@ function convertWordToLowerAtIndex(word, index) {
 		// Capitalize the character at the specified index
 		return (
 			word.substring(0, index) +
-			word.charAt(index).toLoweCase() +
+			word.charAt(index).toLowerCase() +
 			word.substring(index + 1)
 		);
 	}
