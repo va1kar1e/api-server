@@ -35,9 +35,9 @@ function convertWordToCapitalize(word) {
 	return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
 }
 
-function replaceCharacterInWords(words, oldChar, newChar) {
+function replaceCharacterInWords(word, oldChar, newChar) {
 	const regex = new RegExp(oldChar, "gi"); // 'g' for global, 'i' for case-insensitive
-	return words.map((word) => word.replace(regex, newChar));
+	return word.replace(regex, newChar);
 }
 
 function generateWord(word) {
