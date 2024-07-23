@@ -5,7 +5,7 @@ export function convertWordToUppercase(word) {
 
 export function convertWordToLowercase(word) {
 	if (!word) return word; // Return empty if word is falsy
-	return word.toLoweCase();
+	return word.toLowerCase();
 }
 
 export function convertWordToUpperAtIndex(word, index) {
