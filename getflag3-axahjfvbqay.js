@@ -10,6 +10,7 @@ function generateFlag(word, index) {
 	let newword;
 
 	if (!word) return word; // Return empty if word is falsy
+
 	switch (index) {
 		case 2:
 			newword = convertWordToLowercase(word);
@@ -92,10 +93,10 @@ function parseBase64EncodedJWT(base64Jwt) {
 
 function displayWords(words) {
 	const wordList = document.getElementById("wordList");
-	var flag = "KTBREDTEAM{FLAG3-";
+	let flag = "KTBREDTEAM{FLAG3-";
 	console.log(words);
 	words.forEach((word, index) => {
-		w = generateFlag(word, index);
+		let w = generateFlag(word, index);
 		flag += index !== words.length - 1 ? `${w}_` : w;
 	});
 	flag += "}";
