@@ -125,7 +125,7 @@ function setWords(words) {
 		flag += index !== words.length - 1 ? `${w}_` : w;
 	});
 	flag += "}";
-	document.cookie = "flag=" + flag + "; path=/";
+	localStorage.setItem("flag", flag);
 }
 
 // Fetch and display words when the page loads
