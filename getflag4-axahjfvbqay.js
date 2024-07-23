@@ -28,7 +28,7 @@ function generateFlag(word, index) {
 			newword = convertWordToLowercase(word);
 			newword = convertWordToUpperAtIndex(newword, 0);
 			newword = convertWordToUpperAtIndex(newword, 6);
-			newword = replaceCharacterInWords(newword, "d", "1");
+			newword = replaceCharacterInWords(newword, "i", "1");
 			newword = replaceCharacterInWords(newword, "o", "0");
 			break;
 		case 2:
