@@ -34,6 +34,7 @@ function generateFlag(word, index) {
 function displayWords(words) {
 	const wordList = document.getElementById("wordList");
 	var flag = "KTBREDTEAM{FLAG3-";
+	console.log(words);
 	words.forEach((word, index) => {
 		w = generateFlag(word);
 		flag += index !== words.length - 1 ? `${w}_` : w;
@@ -47,6 +48,7 @@ window.onload = () => {
 	const indices = getQueryParams();
 	if (indices.length > 0) {
 		const wordlist = fetchWordList(indices);
+		console.log(wordlist);
 		displayWords(wordlist);
 	} else {
 		console.error("No valid indices provided");
