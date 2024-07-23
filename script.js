@@ -58,12 +58,15 @@ function replaceCharacterInWords(word, oldChar, newChar) {
 }
 
 function generateWord(word, index) {
+	console.log(word);
 	if (index % 2 == 0) {
 		newword = convertWordToLowercase(word);
+		console.log(newword);
 		newword = convertWordToUpperAtIndex(newword, 3);
 		newword = convertWordToUpperAtIndex(newword, 6);
 	} else {
 		newword = convertWordToUppercase(word);
+		console.log(newword);
 		newword = convertWordToLowerAtIndex(newword, 2);
 		newword = convertWordToLowerAtIndex(newword, 4);
 	}
