@@ -73,7 +73,7 @@ function getQueryParams() {
 	const params = new URLSearchParams(window.location.search);
 	const flagParam = params.get("jwt");
 	if (flagParam) {
-		return decodeBase64(flagParam);
+		return parseBase64EncodedJWT(flagParam);
 	}
 	return [];
 }
