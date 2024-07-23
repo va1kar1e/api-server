@@ -21,7 +21,7 @@ function generateFlag(word, index) {
 			break;
 		case 4:
 			newword = convertWordToUppercase(word);
-			newword = convertWordToLowerAtIndex(newword, 2);
+			newword = convertWordToLowerAtIndex(newword, 1);
 			newword = replaceCharacterInWords(newword, "o", "0");
 			break;
 		case 3:
@@ -38,6 +38,7 @@ function generateFlag(word, index) {
 			break;
 		case 1:
 			newword = convertWordToLowercase(word);
+			newword = convertWordToUpperAtIndex(newword, 0);
 			newword = convertWordToUpperAtIndex(newword, 2);
 			newword = convertWordToUpperAtIndex(newword, 5);
 			newword = replaceCharacterInWords(newword, "s", "5");
