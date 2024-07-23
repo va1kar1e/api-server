@@ -16,19 +16,40 @@ async function fetchWordList(indices) {
 	}
 }
 
-function convertWordAtIndexToUppercase(words) {
+function convertWordToUppercase(word) {
 	if (!word) return word; // Return empty if word is falsy
-	return words.toUpperCase();
+	return word.toUpperCase();
 }
 
-function convertWordAtIndexToLowercase(words) {
+function convertWordToLowercase(word) {
 	if (!word) return word; // Return empty if word is falsy
-	return words.toLoweCase();
+	return word.toLoweCase();
 }
 
-function convertWordToCapitalize(word) {
+function convertWordToUpperAtIndex(word, index) {
 	if (!word) return word; // Return empty if word is falsy
-	return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+	if (index < word.length) {
+		// Capitalize the character at the specified index
+		return (
+			word.substring(0, index) +
+			word.charAt(index).toUpperCase() +
+			word.substring(index + 1)
+		);
+	}
+	return word;
+}
+
+function convertWordToLowerAtIndex(word, index) {
+	if (!word) return word; // Return empty if word is falsy
+	if (index < word.length) {
+		// Capitalize the character at the specified index
+		return (
+			word.substring(0, index) +
+			word.charAt(index).toLoweCase() +
+			word.substring(index + 1)
+		);
+	}
+	return word;
 }
 
 function replaceCharacterInWords(word, oldChar, newChar) {
@@ -36,15 +57,24 @@ function replaceCharacterInWords(word, oldChar, newChar) {
 	return word.replace(regex, newChar);
 }
 
-function generateWord(word) {
+function generateWord(word, index) {
+	newword = convertWordToCapitalize(newword);
 	newword = replaceCharacterInWords(word, "o", "0");
 	newword = replaceCharacterInWords(newword, "i", "1");
 	newword = replaceCharacterInWords(newword, "t", "4");
 	newword = replaceCharacterInWords(newword, "s", "5");
 	newword = replaceCharacterInWords(newword, "b", "13");
-	newword = convertWordToCapitalize(newword);
-	newword = convertWordAtIndexToUppercase(newword, 3);
-	newword = convertWordAtIndexToLowercase(newword, 6);
+
+	if (index % 2 == 0) {
+		newword = convertWordToLowercase(newword);
+		newword = convertWordToUpperAtIndex(newword, 2);
+		newword = convertWordToUpperAtIndex(newword, 4);
+	} else {
+		newword = convertWordToUppercase(newword);
+		newword = convertWordToLowerAtIndex(newword, 3);
+		newword = convertWordToLowerAtIndex(newword, 5);
+	}
+
 	return newword;
 }
 
