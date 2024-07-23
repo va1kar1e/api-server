@@ -13,6 +13,7 @@ function generateFlag(word, index) {
 	switch (index) {
 		case 6:
 			newword = word;
+			break;
 		case 5:
 			newword = convertWordToUppercase(word);
 			newword = convertWordToLowerAtIndex(newword, 1);
