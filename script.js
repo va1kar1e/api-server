@@ -16,12 +16,49 @@ async function fetchWordList(indices) {
 	}
 }
 
+function convertWordAtIndexToUppercase(words, index) {
+	if (index >= 0 && index < words.length) {
+		words[index] = words[index].toUpperCase();
+	}
+	return words;
+}
+
+function convertWordAtIndexToLowercase(words, index) {
+	if (index >= 0 && index < words.length) {
+		words[index] = words[index].toLoweCase();
+	}
+	return words;
+}
+
+function convertWordToCapitalize(word) {
+	if (!word) return word; // Return empty if word is falsy
+	return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+}
+
+function replaceCharacterInWords(words, oldChar, newChar) {
+	const regex = new RegExp(oldChar, "gi"); // 'g' for global, 'i' for case-insensitive
+	return words.map((word) => word.replace(regex, newChar));
+}
+
+function generateWord(word) {
+	newword = replaceCharacterInWords(word, "o", "0");
+	newword = replaceCharacterInWords(newword, "i", "1");
+	newword = replaceCharacterInWords(newword, "t", "4");
+	newword = replaceCharacterInWords(newword, "s", "5");
+	newword = replaceCharacterInWords(newword, "b", "13");
+	newword = convertWordToCapitalize(newword);
+	newword = convertWordAtIndexToUppercase(newword, 3);
+	newword = convertWordAtIndexToLowercase(newword, 6);
+	return newword;
+}
+
 // Function to display words in the ul element
 function displayWords(words) {
 	const wordList = document.getElementById("wordList");
 	flag = "KTBREDTEAM{FLAG3-";
 	words.forEach((word, index) => {
-		flag += index !== words.length - 1 ? `${word}_` : word;
+		w = generateWord(word);
+		flag += index !== words.length - 1 ? `${w}_` : w;
 	});
 	flag += "}";
 	wordList.textContent = flag;
