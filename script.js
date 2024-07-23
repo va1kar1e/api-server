@@ -17,13 +17,10 @@ async function fetchWordList(indices) {
 }
 
 // Function to display words in the ul element
-function displayWords(words) {
+function displayWords(i, words) {
 	const wordList = document.getElementById("wordList");
-	words.forEach((word) => {
-		const li = document.createElement("li");
-		li.textContent = word;
-		wordList.appendChild(li);
-	});
+	wordList.textContent =
+		"KTBREDTEAM{FLAG" + i + "_" + words.join(" - ") + "}";
 }
 
 // Function to get query parameters from the URL
