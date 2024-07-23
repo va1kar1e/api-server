@@ -8,7 +8,6 @@ import {
 
 function generateFlag(word, index) {
 	let newword;
-	console.log(word);
 	if (!word) return word; // Return empty if word is falsy
 
 	switch (index) {
@@ -22,12 +21,14 @@ function generateFlag(word, index) {
 		case 4:
 			newword = convertWordToUppercase(word);
 			newword = convertWordToLowerAtIndex(newword, 2);
+			newword = replaceCharacterInWords(newword, "o", "0");
 			break;
 		case 3:
 			newword = convertWordToLowercase(word);
 			newword = convertWordToUpperAtIndex(newword, 0);
 			newword = convertWordToUpperAtIndex(newword, 6);
 			newword = replaceCharacterInWords(newword, "d", "1");
+			newword = replaceCharacterInWords(newword, "o", "0");
 			break;
 		case 2:
 			newword = convertWordToUppercase(word);
@@ -49,9 +50,6 @@ function generateFlag(word, index) {
 			newword = replaceCharacterInWords(newword, "s", "5");
 	}
 
-	newword = replaceCharacterInWords(newword, "o", "0");
-
-	console.log(newword);
 	return newword;
 }
 
