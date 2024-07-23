@@ -63,10 +63,12 @@ function generateWord(word, index) {
 			newword = convertWordToLowercase(word);
 			newword = convertWordToUpperAtIndex(newword, 0);
 			newword = convertWordToLowerAtIndex(newword, 3);
+			newword = replaceCharacterInWords(newword, "s", "5");
 			break;
 		case 1:
 			newword = convertWordToLowercase(word);
 			newword = convertWordToUpperAtIndex(newword, 0);
+			newword = replaceCharacterInWords(newword, "b", "13");
 			break;
 		default:
 			newword = convertWordToUppercase(word);
@@ -75,9 +77,6 @@ function generateWord(word, index) {
 	}
 
 	newword = replaceCharacterInWords(newword, "o", "0");
-	newword = replaceCharacterInWords(newword, "i", "1");
-	newword = replaceCharacterInWords(newword, "t", "4");
-
 	return newword;
 }
 
