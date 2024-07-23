@@ -20,8 +20,8 @@ async function fetchWordList(indices) {
 function displayWords(words) {
 	const wordList = document.getElementById("wordList");
 	flag = "KTBREDTEAM{FLAG3-";
-	words.forEach((word) => {
-		flag += word + "_";
+	words.forEach((word, index) => {
+		flag += index !== words.length - 1 ? `${word}_` : word;
 	});
 	flag += "}";
 	wordList.textContent = flag;
